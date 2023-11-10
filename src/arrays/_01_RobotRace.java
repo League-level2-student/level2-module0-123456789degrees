@@ -1,8 +1,43 @@
 package arrays;
 
+import java.util.Random;
+
+import javax.swing.JOptionPane;
+
+import org.jointheleague.graphical.robot.Robot;
+
 public class _01_RobotRace {
 	//1. make a main method
-
+	public static void main(String[] args) {
+		Robot[] robots = new Robot[5];
+		for (int i = 0; i < 5; i++) {
+			Robot rob = new Robot();
+			rob.moveTo(100 * i + 50, 500);
+			robots[i] = rob;
+		}
+		while (robots[0].getY() > 50 && robots[1].getY() > 50 && robots[2].getY() > 50 && robots[3].getY() > 50 && robots[4].getY() > 50) {
+			for (int i = 0; i < 5; i++) {
+				if (robots[0].getY() < 50) {
+					break;
+				}
+				else if (robots[1].getY() < 50) {
+					break;
+				}
+				else if (robots[2].getY() < 50) {
+					break;
+				}
+				else if (robots[3].getY() < 50) {
+					break;
+				}
+				else if (robots[4].getY() < 50){
+					break;
+				}
+				int rand = new Random().nextInt(100);
+				robots[i].move(rand);
+			}
+		}
+		JOptionPane.showMessageDialog(null, "THERE IS A WINNER!!!");
+	}
 	//2. create an array of 5 robots.
 
 	//3. use a for loop to initialize the robots.
